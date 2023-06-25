@@ -4,16 +4,15 @@ from rest_framework_simplejwt.authentication import JWTAuthentication
 from .serializers import UserSerializer
 from django.shortcuts import get_object_or_404
 from .permissions import IsAccountOwner
-from rest_framework import generics, mixins
+from rest_framework.generics import CreateAPIView
 
 
 
-class UserView(generics.GenericAPIView, mixins.CreateModelMixin):
+
+class UserView(CreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
-    def post(self, request, *args, **kwargs):
-        return self.create(request, *args, **kwargs)
 
 
 class UserDetailView(APIView):
