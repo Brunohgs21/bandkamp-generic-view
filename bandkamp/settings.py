@@ -63,7 +63,6 @@ DATABASES = {
     }
 }
 
-# 5. DEVE estar abaixo da constante DATABASES do Django
 DATABASE_URL = os.getenv('DATABASE_URL')
 
 if DATABASE_URL:
@@ -72,9 +71,7 @@ if DATABASE_URL:
     DATABASES['default'].update(db_from_env)
     DEBUG = False
 
-# (...)
 
-# 6. DEVE estar abaixo do código acima
 if not DEBUG:
     STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
     STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
