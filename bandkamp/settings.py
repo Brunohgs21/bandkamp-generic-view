@@ -192,19 +192,19 @@ AUTH_USER_MODEL = "users.User"
 # import os
 # import dotenv
 
-dotenv.load_dotenv()
-...
-SECRET_KEY = os.getenv("SECRET_KEY")
+# dotenv.load_dotenv()
+# ...
+# SECRET_KEY = os.getenv("SECRET_KEY")
 
-DATABASES = {
-    "default": {
-        # O django já contém a instrução para rodar o motor psycopg2 do postgres
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.getenv("POSTGRES_DB"),
-        "USER": os.getenv("POSTGRES_USER"),
-        "PASSWORD": os.getenv("POSTGRES_PASSWORD"),
-        "HOST": "127.0.0.1",
-        "PORT": 5432,
-    }
-}
-# (...)
+# DATABASES = {
+#     "default": {
+#         # O django já contém a instrução para rodar o motor psycopg2 do postgres
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": os.getenv("POSTGRES_DB"),
+#         "USER": os.getenv("POSTGRES_USER"),
+#         "PASSWORD": os.getenv("POSTGRES_PASSWORD"),
+#         "HOST": "127.0.0.1",
+#         "PORT": 5432,
+#     }
+# }
+# # (...)
