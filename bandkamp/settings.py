@@ -16,6 +16,8 @@ import dotenv
 from pathlib import Path
 from datetime import timedelta
 
+dotenv.load_dotenv()
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -32,9 +34,6 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
-dotenv.load_dotenv()
-
-
 SECRET_KEY = os.getenv("SECRET_KEY", get_random_secret_key())
 
 
@@ -44,8 +43,8 @@ if RAILWAY_STATIC_URL:
     ALLOWED_HOSTS += [RAILWAY_STATIC_URL, "0.0.0.0"]
 
 MIDDLEWARE = [
-    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
